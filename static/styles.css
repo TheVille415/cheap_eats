@@ -14,7 +14,11 @@
 .container {
   padding: 0;
 }
-
+#popular {
+  display: flex;
+  overflow-x: auto;
+  white-space: nowrap;
+}
 .card-img,
 .card-img-top,
 .card-img-bottom {
