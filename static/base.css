@@ -1,0 +1,21 @@
+.navbar {
+  background-color: #b62d2d;
+}
+a {
+  color: #f0cd16;
+  text-decoration: none;
+}
+a::hover {
+  color: white;
+}
+.btn {
+  background-color: #f0cd16;
+  color: white;
+  border: none;
+}
+footer {
+  background-color: #b62d2d;
+  height: 100px;
+  color: white;
+  text-align: center;
+}
