@@ -1,4 +1,8 @@
 from flask import Flask, request, redirect, render_template, url_for
+import json
+import os
+from dotenv import load_dotenv
+import requests
 # from flask_pymongo import PyMongo
 # from bson.objectid import ObjectId
 app = Flask(__name__)
@@ -30,6 +34,16 @@ def feedPage():
 @app.route('/post')
 def postPage():
     return render_template('post.html')
+
+
+
+
+@app.route('/listings')
+def listing():
+    try:
+        return render_template('listing.html')
+    except (ValueError, TypeError):
+        return render_template('500.html'), 500
 
 
 if __name__ == '__main__':
