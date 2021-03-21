@@ -1,0 +1,135 @@
+{% extends 'base.html'%}
+
+{% block title %}
+    <title>Feed Page</title>
+{% endblock%}
+
+{% block styles %}
+    <link rel="stylesheet" href="../static/styles.css">
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+
+        <div class="jumbotron jumbotron-fluid rounded" style="
+        height: 300px;
+        margin: 20px;
+        background-image: url('../static/images/jumbotron.jpeg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        ">
+            <div class="container" >
+            </div>
+        </div>
+
+        <!-- Most popular category -->
+
+        <div class="row">
+            <h3>Most Popular</h3>
+            <a class="text-center" id="button" href="../templates/about.html">See all</a>
+        </div>
+        <div class="container" id="popular">
+                <div class=" col-3 card">
+                    <img src="../static/images/food.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>Chicken Sandwhich</h5>
+                    <p class="card-text"> $15</p>
+                    <small>1234 Main st. </small>
+                    </div>
+                </div>
+                <div class=" col-3 card">
+                    <img src="../static/images/skew.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>Skewer</h5>
+                    <p class="card-text">$12</p>
+                    <small>1234 NW st. </small>
+                    </div>
+                </div>
+                <div class=" col-3 card">
+                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>French Toast</h5>
+                    <p class="card-text">$8</p>
+                    <small>1234 NE Main St.</small>
+                    </div>
+                </div>
+                <div class=" col-3 card">
+                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>French Toast</h5>
+                    <p class="card-text">$8</p>
+                    <small>1234 NE Main St.</small>
+                    </div>
+                </div>
+                <div class=" col-3 card">
+                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>French Toast</h5>
+                    <p class="card-text">$8</p>
+                    <small>1234 NE Main St.</small>
+                    </div>
+                </div>
+                <div class=" col-3 card">
+                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>French Toast</h5>
+                    <p class="card-text">$8</p>
+                    <small>1234 NE Main St.</small>
+                    </div>
+                </div>
+        </div>
+
+        <!-- Discounted Foods -->
+
+        <h3>Under $15 </h3>
+        <a class="text-end" id="button" href="../templates/about.html">See all</a>
+        <div class="container">
+            <div class="row">
+                <div class="card">
+                    <img src="../static/images/food.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>Chicken Sandwhich</h5>
+                    <p class="card-text"> $15</p>
+                    <small>1234 Main st. </small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../static/images/skew.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>Skewer</h5>
+                    <p class="card-text">$12</p>
+                    <small>1234 NW st. </small>
+                    </div>
+                </div>
+                <div class="card">
+                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                    <h5>French Toast</h5>
+                    <p class="card-text">$8</p>
+                    <small>1234 NE Main St.</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Discover Areas -->
+        <h3>Discover Local Restaurants near you </h3>
+        <div class="container">
+            <div class="row">
+                <div class="card">
+                    <img src="../static/images/san-fran.jpeg" class="card-img-top" alt="...">
+                </div>
+                <div class="card">
+                    <img src="../static/images/oakland.jpeg" class="card-img-top" alt="...">
+                </div>
+                <div class="card">
+                    <img src="../static/images/san-jose.jpeg" class="card-img-top" alt="...">
+                </div>
+            </div>
+            </div>
+    </div>
+</div>
+
+{% endblock %}
