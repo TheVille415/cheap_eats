@@ -32,54 +32,16 @@
             <a class="text-center" id="button" href="../templates/about.html">See all</a>
         </div>
         <div class="container" id="popular">
+            {% for i in range({{limit}}) %}
                 <div class=" col-3 card">
-                    <img src="../static/images/food.jpg" class="card-img-top" alt="...">
+                    <img src="{{context['photo'][i]}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5>Chicken Sandwhich</h5>
-                    <p class="card-text"> $15</p>
-                    <small>1234 Main st. </small>
+                    <h5>{{context['business_name'][i]}}</h5>
+                    <p class="card-text"> {{context['price'][i]}}</p>
+                    <small>{{context['address'][i]}}</small>
                     </div>
                 </div>
-                <div class=" col-3 card">
-                    <img src="../static/images/skew.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5>Skewer</h5>
-                    <p class="card-text">$12</p>
-                    <small>1234 NW st. </small>
-                    </div>
-                </div>
-                <div class=" col-3 card">
-                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5>French Toast</h5>
-                    <p class="card-text">$8</p>
-                    <small>1234 NE Main St.</small>
-                    </div>
-                </div>
-                <div class=" col-3 card">
-                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5>French Toast</h5>
-                    <p class="card-text">$8</p>
-                    <small>1234 NE Main St.</small>
-                    </div>
-                </div>
-                <div class=" col-3 card">
-                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5>French Toast</h5>
-                    <p class="card-text">$8</p>
-                    <small>1234 NE Main St.</small>
-                    </div>
-                </div>
-                <div class=" col-3 card">
-                    <img src="../static/images/toast.jpeg" class="card-img-top" alt="...">
-                    <div class="card-body">
-                    <h5>French Toast</h5>
-                    <p class="card-text">$8</p>
-                    <small>1234 NE Main St.</small>
-                    </div>
-                </div>
+            {% endfor %}
         </div>
 
         <!-- Discounted Foods -->
