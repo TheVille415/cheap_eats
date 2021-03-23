@@ -6,6 +6,8 @@
 
 {% block styles %}
 <link rel="stylesheet" href="../static/about.css">
+<!--This is our icon stylesheet-->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 {% endblock %}
 
 {% block content %}
@@ -13,10 +15,33 @@
 <div class="container">
     <div class="row align-items-center" id="founder">
         <div class="col-5 offset-1" id="Jordan">
-            <img src="../static/images/Jordan.png" alt="">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../static/images/Jordan.png" alt="Jordan Torres photo">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1>Jordan Torres</h1> 
+                    <p>Backend and Git Master</p> 
+                    <a href="https://github.com/TheVille415"><i class="fa fa-github" style="font-size:36px"></i></a>
+                  </div>
+                </div>
+              </div>
         </div>
         <div class="col-5 offset-1" id="Merissa">
-            <img src="../static/images/Rissy.jpeg" alt="">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                  <div class="flip-card-front">
+                    <img src="../static/images/Rissy.jpeg" alt="Avatar">
+                  </div>
+                  <div class="flip-card-back">
+                    <h1>Merissa Bridgeman</h1> 
+                    <p>Full Stack and SCRUM Master</p> 
+                    <a href="https://github.com/merissab44"><i class="fa fa-github" style="font-size:36px"></i></a>
+                    <a href="https://twitter.com/Merissa_smarty"><i class="fa fa-twitter" style="font-size:36px"></i></a>
+                  </div>
+                </div>
+              </div>
         </div>
     </div>
 </div>

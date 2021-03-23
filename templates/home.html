@@ -34,12 +34,35 @@
         <div class="container" id="popular">
             {% for i in business_data %}
                 <div class=" col-3 card">
-                    <img src="{{business_data.photo[i]}}" class="card-img-top" alt="...">
+                    <img src="{{business_data.photo[i]}}" class="card-img-top" alt="..." data-toggle="modal" data-target="#listing">
                     <div class="card-body">
                     <h5>{{business_data.business_name[i]}}</h5>
                     <p class="card-text"> {{business_data.price[i]}}</p>
                     <small>{{business_data.address[i]}}</small>
                     </div>
+                    <div class="modal fade" id="listing" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
+                        <div class="modal-dialog modal-lg" role="document">
+                          <div class="modal-content">
+                            <div class="modal-header">
+                                <img src="{{business_data.photo[i]}}">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                
+                            <div class="modal-body ">
+                              <p> Modal Box Description.
+                                sdc
+                                dfvdv
+                                sscg sdgscsc dfvfd
+                              </p>
+                            </div>
+                            <div class="modal-footer">
+                              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </div>
+                          </div>
+                        </div>
+                        </div>
                 </div>
             {% endfor %}
         </div>
@@ -47,7 +70,7 @@
         <!-- Discounted Foods -->
 
         <h3>Under $15 </h3>
-        <a class="text-end" id="button" href="../templates/about.html">See all</a>
+        <a class="text-end" id="button" href="/about">See all</a>
         <div class="container">
             <div class="row">
                 <div class="card">
