@@ -1,32 +1,18 @@
 import os
 import requests
 from flask import Flask, request, redirect, render_template, url_for
-<<<<<<< HEAD
 from flask_pymongo import PyMongo
 import json
-=======
-import json
-import os
 from dotenv import load_dotenv
-import requests
-# from flask_pymongo import PyMongo
->>>>>>> a0b8e378b1528d01e62b2afd5b012bd385115299
-# from bson.objectid import ObjectId
-from dotenv import load_dotenv
-app = Flask(__name__)
 
-app.config['MONGO_URI'] = "mongodb+srv://merissa:Tigers98!@cluster0.emrvw.mongodb.net/Web1-1?retryWrites=true&w=majority"
-mongo = PyMongo(app)
+app = Flask(__name__)
 
 load_dotenv()
 # Define API KEY, ENDPOINTS, AND HEADERS HERE
 API_KEY = os.getenv('API_KEY')
 API_URL = 'https://api.yelp.com/v3'
-CATEGORY_ENDPOINT = 'https://api.yelp.com/v3/categories/food'
 BUSINESS_ENDPOINT = 'https://api.yelp.com/v3/businesses/search'
-
 HEADERS = {'Authorization': 'bearer %s' % API_KEY}
-
 # Define our parameters
 PARAMETERS = {
     'categories': 'food',
@@ -34,20 +20,30 @@ PARAMETERS = {
     'radius': 10000,
     'price': 1,
     'is_close': False,
-    #   'location': location
+    'location': 'Oakland'
 }
-
 # Make a request to the API
-
 response = requests.get(url=BUSINESS_ENDPOINT,
                         params=PARAMETERS, headers=HEADERS)
 
+business_name = []
+rating = []
+price = []
+address = []
+photo = []
 
-# print(json.dumps(category_data, indent=3))
+# Converts the json string to a dictionary
+category_data = response.json()
 
-# for item in category_data['businesses']:
-#     print(item['name'], item['rating'],
-#           item['price'], item['location']['address1'], item['is_closed'], item['image_url'])
+for biz in category_data['businesses']:
+    business_name.append(biz['name']),
+    rating.append(biz['rating']),
+    price.append(biz['price']),
+    address.append(biz['location']),
+    photo.append(biz['image_url'])
+
+print(business_name)
+print(rating)
 
 
 @ app.route('/')
@@ -57,27 +53,7 @@ def displayWelcomePage():
 
 @ app.route('/home')
 def display_categories():
-
-    # Converts the json string to a dictionary
-    category_data = requests.get(url=BUSINESS_ENDPOINT,
-                                 params=PARAMETERS, headers=HEADERS).json()
-
-    business_name = []
-    rating = []
-    price = []
-    address = []
-    photo = []
-
-    json.dumps(category_data, indent=3)
-
-    for item in category_data['businesses']:
-        business_name.append(item['name'])
-        rating.append(item['rating'])
-        price.append(item['price'])
-        address.append(item['display_address'])
-        photo.append(item['image_url'])
-
-    context = {
+    business = {
         'business_name': business_name,
         'rating': rating,
         'price': price,
@@ -85,7 +61,11 @@ def display_categories():
         'photo': photo,
         'limit': 20
     }
-    return render_template('home.html', **context)
+
+    context = {
+        'business_data': business
+    }
+    return render_template('home.html', **context, business=business)
 
 
 @ app.route('/about')
@@ -103,8 +83,6 @@ def postPage():
     return render_template('post.html')
 
 
-
-
 @app.route('/listings')
 def listing():
     try:
@@ -115,3 +93,4 @@ def listing():
 
 if __name__ == '__main__':
     app.run(debug=True)
+    display_categories()

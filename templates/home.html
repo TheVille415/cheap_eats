@@ -32,13 +32,13 @@
             <a class="text-center" id="button" href="../templates/about.html">See all</a>
         </div>
         <div class="container" id="popular">
-            {% for i in range({{limit}}) %}
+            {% for i in business_data %}
                 <div class=" col-3 card">
-                    <img src="{{context['photo'][i]}}" class="card-img-top" alt="...">
+                    <img src="{{business_data.photo[i]}}" class="card-img-top" alt="...">
                     <div class="card-body">
-                    <h5>{{context['business_name'][i]}}</h5>
-                    <p class="card-text"> {{context['price'][i]}}</p>
-                    <small>{{context['address'][i]}}</small>
+                    <h5>{{business_data.business_name[i]}}</h5>
+                    <p class="card-text"> {{business_data.price[i]}}</p>
+                    <small>{{business_data.address[i]}}</small>
                     </div>
                 </div>
             {% endfor %}
