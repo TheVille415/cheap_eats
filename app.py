@@ -26,24 +26,14 @@ PARAMETERS = {
 response = requests.get(url=BUSINESS_ENDPOINT,
                         params=PARAMETERS, headers=HEADERS)
 
-business_name = []
-rating = []
-price = []
-address = []
-photo = []
 
 # Converts the json string to a dictionary
 category_data = response.json()
+# print(category_data)
 
-for biz in category_data['businesses']:
-    business_name.append(biz['name']),
-    rating.append(biz['rating']),
-    price.append(biz['price']),
-    address.append(biz['location']),
-    photo.append(biz['image_url'])
 
-print(business_name)
-print(rating)
+# print(business_name)
+# print(rating)
 
 
 @ app.route('/')
@@ -53,19 +43,19 @@ def displayWelcomePage():
 
 @ app.route('/home')
 def display_categories():
-    business = {
-        'business_name': business_name,
-        'rating': rating,
-        'price': price,
-        'address': address,
-        'photo': photo,
-        'limit': 20
-    }
+    business_array = []
+    for biz in category_data['businesses']:
+        business_array.append(biz)
+        # print(biz)
 
-    context = {
-        'business_data': business
-    }
-    return render_template('home.html', **context, business=business)
+    # context = {
+    #     'name': business_array['name'],
+    #     'photo': business_array['image_url'],
+    #     'price': business_array['price'],
+    #     'address': business_array['location']
+    # }
+    print(business_array[0]['name'])
+    return render_template('home.html', context=business_array)
 
 
 @ app.route('/about')

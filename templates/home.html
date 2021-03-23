@@ -32,19 +32,19 @@
             <a class="text-center" id="button" href="../templates/about.html">See all</a>
         </div>
         <div class="container" id="popular">
-            {% for i in business_data %}
+            {% for i in context %}
                 <div class=" col-3 card">
-                    <img src="{{business_data.photo[i]}}" class="card-img-top" alt="..." data-toggle="modal" data-target="#listing">
+                    <img src="{{i.image_url}}" class="card-img-top" alt="..." data-toggle="modal" data-target="#listing">
                     <div class="card-body">
-                    <h5>{{business_data.business_name[i]}}</h5>
-                    <p class="card-text"> {{business_data.price[i]}}</p>
-                    <small>{{business_data.address[i]}}</small>
+                    <h5>{{i.name}}</h5>
+                    <p class="card-text"> Price: {{i.price}}</p>
+                    <small>{{i.address1}}</small>
                     </div>
                     <div class="modal fade" id="listing" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel3" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                           <div class="modal-content">
                             <div class="modal-header">
-                                <img src="{{business_data.photo[i]}}">
+                                <img src="{{i.image_url}}">
                                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                                 </button>
@@ -116,5 +116,9 @@
             </div>
     </div>
 </div>
+
+<footer>
+    <p>&copy; Cheap Eats </p>
+  </footer>
 
 {% endblock %}
